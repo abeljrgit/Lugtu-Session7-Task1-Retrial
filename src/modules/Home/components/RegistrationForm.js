@@ -1,8 +1,7 @@
 import { Button, Card, Stack, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { onGetUserData } from '../../../services/action';
-import { ModalComponent } from './Modal';
+import { onGetUserData, onOpenModal } from '../../../services/action';
 
 export const RegistrationForm = () => {
   const [registerForm, setRegisterForm] = useState({
@@ -69,6 +68,19 @@ export const RegistrationForm = () => {
       // onGetUserData(registerForm.name, registerForm.job);
       dispatch(onGetUserData(registerForm.name, registerForm.job));
     } else if (registerForm.name === '' || registerForm.job === '') {
+      dispatch(
+        onOpenModal({
+          title: 'Failed',
+          description: 'User was not registered\nSomething bad happened',
+        })
+      );
+    } else {
+      dispatch(
+        onOpenModal({
+          title: 'Failed',
+          description: 'User was not registered\nSomething bad happened',
+        })
+      );
     }
   };
 
