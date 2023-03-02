@@ -3,7 +3,7 @@ import * as actions from './actionType';
 // Central Storage
 const initState = {
   userData: {
-    nameValue: 'TEST',
+    nameValue: '',
     jobValue: '',
     idValue: '',
     createdAtValue: '',
@@ -16,8 +16,12 @@ const reducer = (state = initState, action) => {
 
   switch (action.type) {
     case actions.GET_USER_DATA:
-      console.log(action.payload);
       return { ...state, userData: { ...action.payload } };
+    case actions.CLOSE_MODAL:
+      return { ...state, modal: { ...action.payload } };
+    case actions.OPEN_MODAL:
+      return { ...state, modal: { ...action.payload } };
+
     default:
       return state;
   }

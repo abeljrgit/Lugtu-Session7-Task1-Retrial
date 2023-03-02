@@ -32,7 +32,27 @@ export const onGetUserData = (nameValue, jobValue) => {
             };
           })(res.data)
         );
+        dispatch(
+          onOpenModal({
+            title: 'Success',
+            description: ' User was registered!\nPlease Check the result tab',
+          })
+        );
       })
       .catch((err) => {});
+  };
+};
+
+export const onCloseModal = () => {
+  return {
+    type: actions.CLOSE_MODAL,
+    payload: { visible: false, title: '', description: '' },
+  };
+};
+
+export const onOpenModal = ({ title, description }) => {
+  return {
+    type: actions.OPEN_MODAL,
+    payload: { visible: true, title, description },
   };
 };

@@ -3,6 +3,7 @@ import { Box, Tab } from '@mui/material';
 import React, { Component } from 'react';
 import { RegistrationForm } from '../components';
 import { ResultForm } from '../components/ResultForm';
+import { ModalComponent } from '../components/Modal';
 
 class Home extends Component {
   state = {
@@ -18,6 +19,7 @@ class Home extends Component {
   render() {
     return (
       <section>
+        <ModalComponent />
         <Box sx={{ width: '100%', typography: 'body1' }}>
           <TabContext value={`${this.state.value}`}>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>

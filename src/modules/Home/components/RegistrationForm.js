@@ -2,6 +2,7 @@ import { Button, Card, Stack, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { onGetUserData } from '../../../services/action';
+import { ModalComponent } from './Modal';
 
 export const RegistrationForm = () => {
   const [registerForm, setRegisterForm] = useState({
